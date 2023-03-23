@@ -1,10 +1,10 @@
 .banner {
     background-size: cover;
     background-position: center;
-    height: 100vh;
-  
+    height: 70vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
       url("https://d100mj7v0l85u5.cloudfront.net/s3fs-public/2022-09/impresion-3d-empaques.png");
+
   }
   
   .banner-container {
