@@ -1,0 +1,38 @@
+.nav-container {
+
+    position: sticky;
+    z-index: 3;
+    top: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 15vh;
+    background-color: black;
+}
+
+.navbar-logo {
+    font-size: 4vh;
+    justify-self: start;
+    margin-left: 20px;
+    color: antiquewhite;
+    margin-top: 4vh;
+}
+
+.seeCarrito {
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 4vh;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.buttons {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
