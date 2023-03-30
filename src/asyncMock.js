@@ -1,15 +1,32 @@
 const products = [
-    { 
-        id: '1', 
-        name: 'iphone 12', 
-        price: 1000, 
-        category: 'celular', 
-        img:'https://itechstore.com.ar/wp-content/uploads/2020/06/iphone-12-pro-gold-hero-600x710.png', 
-        stock: 25, 
-        description:'Descripcion de Iphone 12'
+    {
+        "id": 1,
+        "category": "Coleccionable",
+        "name": "Spawn Prey",
+        "author": "Prey Studio",
+        "price": 10000,
+        "img": "https://rabbithole.cl/wp-content/uploads/2021/05/206184196_509949957004695_5713717791487007872_n.jpg",
+        "quanty": 2
     },
-    { id: '2', name: 'samsung s21', price: 800, category: 'celular', img:'/images/cart.svg', stock: 16, description:'Descripcion de Samsung s21'},
-    { id: '3', name: 'Ipad 8va generacion', price: 1200, category: 'tablet', img:'https://medias.musimundo.com/medias/00406046-143516-143516-01-143516-01.jpg-size515?context=bWFzdGVyfGltYWdlc3w1MjI1MnxpbWFnZS9qcGVnfGhjMC9oYWMvMTAyODM0OTc0NTU2NDYvMDA0MDYwNDYtMTQzNTE2LTE0MzUxNl8wMS0xNDM1MTZfMDEuanBnX3NpemU1MTV8MzA0NmMzNGFhZjUwMDY2YjY5MjU0MjlkMGJlYWMxODAxZjE5ODJhZmJlOTczZThmZjE2NTQxMjU5NjE2OTA4Yw', stock: 10, description:'Descripcion de Ipad'}
+    {
+        "id": 2,
+        "category": "Mates",
+        "name": "Mate Seleccion",
+        "author": "FGL 3D",
+        "price": 2500,
+        "img": "https://files.cults3d.com/uploaders/17639623/illustration-file/5fa5e103-aabd-476e-a333-c63e5c69490f/1-MATE-ARGENTINA-CAMPEON.png",
+        "quanty": 5
+    },
+    {
+        "id": 3,
+        "name": "Miniatura Warhammer",
+        "category": "Miniaturas",
+        "author": "Game Workshop",
+        "price": 27,
+        "img": "https://www.warhammer-community.com/wp-content/uploads/2020/05/3ZyzN4x4DNb8eI4U.png",
+        "quanty": 1
+    }
+
 ]
 
 export const getProducts = () => {

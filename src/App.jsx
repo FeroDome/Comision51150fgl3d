@@ -1,0 +1,16 @@
+import Navbar from "./component/Navbar/Navbar";
+import "./App.css";
+
+
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <h1>Home</h1>
+
+    </>
+  );
+};
+
+export default App;
