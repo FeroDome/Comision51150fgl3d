@@ -1,6 +1,6 @@
 import "./Banner.css"
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <div className="banner">
         <div className="banner-container">
@@ -13,4 +13,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner;

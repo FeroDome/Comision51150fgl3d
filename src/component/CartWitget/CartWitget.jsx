@@ -1,5 +1,5 @@
 
-const CartWidget = () => {
+export const CartWidget = () => {
     return  (
         <div>
             <h2 className="seeCarrito">🛒</h2>
