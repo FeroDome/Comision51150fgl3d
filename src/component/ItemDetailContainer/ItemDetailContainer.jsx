@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 
+
 const product = [
     {
         "id": 1,
@@ -45,7 +46,7 @@ export const ItemDetailContainer = () => {
         const getdata = new Promise(resolve => {
             setTimeout(() => {
                 resolve(product);
-            }, 3000);
+            }, 1000);
 
         });
 
@@ -54,7 +55,9 @@ export const ItemDetailContainer = () => {
     }, [detalleId])
 
     return (
+        <div className="ItemDetailContainer">
         <ItemDetail data={data} />
+        </div>
     );
 }
 

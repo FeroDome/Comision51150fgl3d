@@ -11,6 +11,11 @@
     height: 15vh;
     background-color: black;
 }
+.Categories {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .navbar-logo {
     font-size: 4vh;
@@ -35,4 +40,55 @@
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
+}
+
+.Option {
+    text-decoration: none;
+    border-radius: 25;
+    margin: 0 50px;
+    width: auto;
+    padding: 12px;
+    font-size: 8px;
+    background: black;
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+
+}
+
+.ActiveOption {
+
+    text-decoration: none;
+    border-radius: 25;
+    margin: 0 50px;
+    width: auto;
+    padding: 12px;
+    font-size: 15px;
+    background: rgb(72, 105, 158);
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.NavLink {
+    color: rgb(255, 0, 0)
 }

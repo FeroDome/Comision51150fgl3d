@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../Banner/Banner"
 import Title from "../Title/Title";
-import ItemCount from "../ItemCount/ItemCount";
+
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
@@ -57,14 +57,11 @@ export const ItemListContainer = ({ texto }) => {
 
 }, [categoryId])
 
-const onAdd = (quantity) => {
-    console.log(`Compraste ${quantity} unidades`);
-}
+
 return (
     <>
         <Banner />
         <Title greeting={texto} />
-        <ItemCount initial={1} stock={5} onAdd={onAdd} />
         <ItemList data={data} />
     </>
 );
