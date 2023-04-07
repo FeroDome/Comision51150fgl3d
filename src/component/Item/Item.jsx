@@ -1,9 +1,12 @@
 import './Item.css'
 import { Link } from 'react-router-dom';
+
+
 import React from 'react'
 
 
 const Item = ({ info }) => {
+
     return (
         <article className="CardItem">
             <header className="Header">
@@ -15,6 +18,7 @@ const Item = ({ info }) => {
                 <img src={info.img} alt={info.name} className="ItemImg" />
             </picture>
             <section>
+                <h2>{info.name}</h2>
                 <p className="Info">
                     Precio: ${info.price}
                 </p>
