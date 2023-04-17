@@ -1,40 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../Banner/Banner"
 import Title from "../Title/Title";
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
 
-const products = [
-    {
-        "id": 1,
-        "category": "Coleccionable",
-        "name": "Spawn Prey",
-        "author": "Prey Studio",
-        "price": 10000,
-        "img": "https://rabbithole.cl/wp-content/uploads/2021/05/206184196_509949957004695_5713717791487007872_n.jpg",
-        "quanty": 2
-    },
-    {
-        "id": 2,
-        "category": "Mates",
-        "name": "Mate Seleccion",
-        "author": "FGL 3D",
-        "price": 2500,
-        "img": "https://files.cults3d.com/uploaders/17639623/illustration-file/5fa5e103-aabd-476e-a333-c63e5c69490f/1-MATE-ARGENTINA-CAMPEON.png",
-        "quanty": 5
-    },
-    {
-        "id": 3,
-        "name": "Miniatura Warhammer",
-        "category": "Miniaturas",
-        "author": "Game Workshop",
-        "price": 27,
-        "img": "https://www.warhammer-community.com/wp-content/uploads/2020/05/3ZyzN4x4DNb8eI4U.png",
-        "quanty": 1
-    },
-];
 
 export const ItemListContainer = ({ texto }) => {
 
@@ -43,28 +15,27 @@ export const ItemListContainer = ({ texto }) => {
     const { categoryId } = useParams();
 
     useEffect(() => {
-        const getData = new Promise(resolve => {
-            setTimeout(() => {
-                resolve(products);
-            }, 1000);
-    });
-    if (categoryId) {
-        getData.then(res => setData(res.filter(product => product.category === categoryId)));
-    } else {
-        getData.then(res => setData(res))
-    }
-    getData.then(res => setData(res));
+        const querydb = getFirestore();
+        const queryCollection = collection(querydb, 'products');
 
-}, [categoryId])
+        if (categoryId) {
+            const queryFilter = query(queryCollection, where('category', '==', categoryId))
+            getDocs(queryFilter)
+                .then(res => setData(res.docs.map(product => ({ id: product.id, ...product.data() }))))
+        } else {
+            getDocs(queryCollection)
+                .then(res => setData(res.docs.map(product => ({ id: product.id, ...product.data() }))))
+        }
+    }, [categoryId])
 
 
-return (
-    <>
-        <Banner />
-        <Title greeting={texto} />
-        <ItemList data={data} />
-    </>
-);
+    return (
+        <>
+            <Banner />
+            <Title greeting={texto} />
+            <ItemList data={data} />
+        </>
+    );
 }
 
 
