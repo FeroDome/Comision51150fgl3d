@@ -4,7 +4,7 @@ import './ItemCount.css';
 
 import React, { useState, useEffect } from 'react';
 
-export const ItemCount = (props, initial, stock, onAdd ) => {
+export const ItemCount = (props) => {
     const [count, setCount] = useState(props.initial);
     const [message, setMessage] = useState('')
 
@@ -23,39 +23,39 @@ export const ItemCount = (props, initial, stock, onAdd ) => {
         if (count < props.stock) {
             setCount(count + 1)
         } else {
-                setMessage('No puede agregar mas productos')
-            }
-            setCount(count + 1);
+            setMessage('No puede agregar mas productos')
         }
-    
-
-        useEffect(() => {
-            setCount(parseInt(props.initial));
-
-        }, [props.initial]);
-
-        //const reset = () => {
-        //    setCount(initial)
-        //    setMessage('')
-        //}
-
-        return (
-            <div className='counter'>
-                {/*<Button label="restar" handleClick={decrease}/>
-                <Button label="sumar" handleClick={increase}/>
-                <Button label="reiniciar" handleClick={reset}/>*/}
-                <button disabled={count <= 1} onClick={decrease}>-</button>
-                <span>{count}</span>
-                <button disabled={count >= stock} onClick={increase}>+</button>
-                <div>
-                    <button disabled={stock <= 0} onClick={() => onAdd(count)}>Agregar al Carrito</button>
-                </div>
-                <h3>Cantidad Disponible: {props.stock}</h3>
-                <h2 className='h2'>{message}</h2>
-            </div>
-        );
-
+        setCount(count + 1);
     }
-    
 
-    export default ItemCount;
+
+    useEffect(() => {
+        setCount(parseInt(props.initial));
+
+    }, [props.initial]);
+
+    //const reset = () => {
+    //    setCount(initial)
+    //    setMessage('')
+    //}
+
+    return (
+        <div className='counter'>
+            {/*<Button label="restar" handleClick={decrease}/>
+            <Button label="sumar" handleClick={increase}/>
+        <Button label="reiniciar" handleClick={reset}/>*/}
+            <button disabled={count <= 1} onClick={decrease}>-</button>
+            <span>{count}</span>
+            <button disabled={count >= props.stock} onClick={increase}>+</button>
+            <div>
+                <button disabled={props.stock <= 0} onClick={() => props.onAdd(count)}>Agregar al Carrito</button>
+            </div>
+            <h3>Cantidad Disponible: {props.stock}</h3>
+            <h2 className='h2'>{message}</h2>
+        </div>
+    );
+
+}
+
+
+export default ItemCount;
