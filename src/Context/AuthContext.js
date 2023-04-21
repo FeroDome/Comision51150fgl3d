@@ -1,5 +1,5 @@
 import { useState, createContext, useContext } from "react";
-import { useNotification } from "../component/notification/notificationService";
+import { useNotification } from "../component/notification/NotificationService";
 
 import { useNavigate } from "react-router-dom";
 
