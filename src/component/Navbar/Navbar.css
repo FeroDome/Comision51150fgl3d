@@ -14,7 +14,7 @@
     background: black;
 }
 
-.Categories {
+.categories {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -31,10 +31,13 @@
 
 .seeCarrito {
     font-size: 25px;
+    color: #FFFFFF;
     margin-right: 20px;
     margin-top: 4vh;
     cursor: pointer;
     text-decoration: none;
+    border-radius: 10px;
+    background: #548ca7;
 
 }
 
