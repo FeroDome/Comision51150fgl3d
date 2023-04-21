@@ -16,6 +16,8 @@ export const Navbar = () => {
                     <NavLink className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'} to="/category/mates" >Mates</NavLink>
 
                     <NavLink className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'} to="/category/miniaturas" >Miniaturas</NavLink>
+
+                    <NavLink to='/login' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Login</NavLink>
                 </div >
                 <CartWidget />
 
