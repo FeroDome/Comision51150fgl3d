@@ -1,3 +1,25 @@
+FGL_3D
+Ecommerce de impresion 3d
+Por favor:
+_ no olvides hacer un commit con los cambios hechos
+_ comentarios sobre alguna sugerencia de cambio son bienvenidos
+_ 
+
+This product is being built
+
+Running Locally
+$ git clone https://github.com/FeroDome/Comision51150fgl3d.git
+$ npm install
+$ npm start
+Environment Variables
+See .env.example for an example.
+
+Create-React-App
+Firebase
+Test App
+Deploy
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

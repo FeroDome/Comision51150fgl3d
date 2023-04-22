@@ -3,7 +3,7 @@ import CartWidget from "../CartWitget/CartWitget";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useEffect, useState } from 'react'
-import { collection, getDocs, query, orderBy } from 'firebase/firestore'
+import { collection, getDocs, query } from 'firebase/firestore'
 import { db } from '../../Firebase/config'
 
 
@@ -14,7 +14,7 @@ export const Navbar = () => {
     const { user } = useAuth()
 
     useEffect(() => {
-        const categoriesRef = query(collection(db, 'categories'), orderBy('order'))
+        const categoriesRef = query(collection(db, 'categories'))
 
         getDocs(categoriesRef)
             .then(snapshot => {

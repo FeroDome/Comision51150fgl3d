@@ -1,3 +1,4 @@
+
 import React  from "react";
 import { useCartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
@@ -11,13 +12,13 @@ const navigate = useNavigate()
 
 
     return  (
-        <button className="seeCarrito" onClick={() => navigate('/cart')}>
-            <h2>🛒</h2>
+        <div className='carrito' onClick={() => navigate('/cart')}>
+            <h2 className='img__carrito'>🛒</h2>
             <span>{totalProduct ? totalProduct() : ''}</span>
 
             
-        </button>
+        </div>
     )
 }
 
-export default CartWidget
+export default CartWidget;

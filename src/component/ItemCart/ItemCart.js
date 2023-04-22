@@ -1,6 +1,5 @@
 import React from 'react'
 import './ItemCart.css';
-import Button from '../Button/Button';
 import { useCartContext } from '../../context/CartContext';
 
 const ItemCart = ({product: {id, img, name, quantity, price}}) => {
