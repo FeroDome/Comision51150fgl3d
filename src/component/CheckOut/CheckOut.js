@@ -4,6 +4,7 @@ import { db } from '../../Firebase/config'
 import { documentId, getDocs, query, collection, where, writeBatch, addDoc } from 'firebase/firestore'
 import { useNotification } from '../notification/NotificationService'
 import { useNavigate } from 'react-router-dom'
+import { Form } from 'react-router-dom'
 
 const Checkout = () => {
     const [orderId, setOrderId] = useState('')
@@ -26,6 +27,7 @@ const Checkout = () => {
                 },
                 items: cart,
                 total: total
+
             }
 
             const ids = cart.map(prod => prod.id)
@@ -77,14 +79,14 @@ const Checkout = () => {
     }
     
     if(loading) {
-        return <h1>SE esta generando su orden...</h1>
+        return <h1>Se esta generando su orden de compra...</h1>
     }
 
     return (
         <div>
             <h1>Checkout</h1>
 
-            {/* <Form onConfirm={handleConfirm}/> */}
+            <Form onConfirm={handleConfirm}/>
             { orderId ? <h2>El id de su orden es: {orderId}</h2> : <button onClick={handleConfirm}>Generar orden</button> }
         </div>
     )

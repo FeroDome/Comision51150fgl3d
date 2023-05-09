@@ -23,7 +23,7 @@ export const useAsync = (asyncFunction, dependecies = []) => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [...dependecies]) //eslint-disable-line
+    }, [...dependecies]) 
 
     return {
         data,
