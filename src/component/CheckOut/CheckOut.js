@@ -4,12 +4,12 @@ import { db } from '../../Firebase/config'
 import { documentId, getDocs, query, collection, where, writeBatch, addDoc } from 'firebase/firestore'
 import { useNotification } from '../notification/NotificationService'
 import { useNavigate } from 'react-router-dom'
-import { Form } from 'react-router-dom'
+
 
 const Checkout = () => {
     const [orderId, setOrderId] = useState('')
     const [loading, setLoading] = useState(false)
-    const { cart, total, clearCart } = useContext(CartContext)
+    const { cart, totalPrice, clearCart } = useContext(CartContext)
 
 
     const { setNotification } = useNotification()
@@ -17,17 +17,17 @@ const Checkout = () => {
     const navigate = useNavigate()
 
     const handleConfirm = async (userData) => {
-        try{ 
+        try {
             setLoading(true)
             const objOrder = {
-                buyer: {
-                    name: 'Fernando Dome',
-                    phone: '1987654321',
-                    address: 'Mendoza 3433'
+                buyer:{
+                    name: 'Fernando',
+                    email: 'fernando@hotmail.com',
+                    phone: '123456789',
+                    address: 'mendoza 2020'
                 },
-                items: cart,
-                total: total
-
+                item: cart.map(product => ({id: product.id, name: product.name, price: product.price, quantity: product.quantity})),
+                total: totalPrice(),
             }
 
             const ids = cart.map(prod => prod.id)
@@ -48,14 +48,14 @@ const Checkout = () => {
                 const productAddedToCart = cart.find(prod => prod.id === doc.id)
                 const prodQuantity = productAddedToCart?.quantity
 
-                if(stockDb >= prodQuantity) {
-                    batch.update(doc.ref, { stock: stockDb - prodQuantity})
+                if (stockDb >= prodQuantity) {
+                    batch.update(doc.ref, { stock: stockDb - prodQuantity })
                 } else {
-                    outOfStock.push({ id: doc, ...dataDoc})
+                    outOfStock.push({ id: doc, ...dataDoc })
                 }
             })
 
-            if(outOfStock.length === 0) {
+            if (outOfStock.length === 0) {
                 batch.commit()
 
                 const orderRef = collection(db, 'orders')
@@ -70,15 +70,15 @@ const Checkout = () => {
 
             } else {
                 setNotification('error', 'Hay productos que no tienen stock disponible')
-            } 
+            }
         } catch (error) {
             setNotification('error', 'Hubo un error generando la orden')
         } finally {
             setLoading(false)
         }
     }
-    
-    if(loading) {
+
+    if (loading) {
         return <h1>Se esta generando su orden de compra...</h1>
     }
 
@@ -86,8 +86,8 @@ const Checkout = () => {
         <div>
             <h1>Checkout</h1>
 
-            <Form onConfirm={handleConfirm}/>
-            { orderId ? <h2>El id de su orden es: {orderId}</h2> : <button onClick={handleConfirm}>Generar orden</button> }
+            {/*<form onConfirm={handleConfirm}/>*/}
+            {orderId ? <h2>El id de su orden es: {orderId}</h2> : <button onClick={handleConfirm}>Generar orden</button>}
         </div>
     )
 }
